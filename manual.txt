@@ -1,0 +1,18 @@
+How to run program :
+-----------------------------------------------------
+Step 1 : Install Cython -> pip install cython
+Step 2 : Install Kivy   -> pip install kivy
+Step 3 : Open calorie_nutrient.py with Sublime Text 3
+Step 4 : Ctrl + Shift + B
+** If program not run 
+Step 5 : Open calorie_nutrient with IDLE(Python 3.6)
+Step 6 : F5
+How to use program :
+-----------------------------------------------------
+Step 1 : Select your gender 
+Step 2 : Select your target
+Step 3 : Select your activities rates
+Step 4 : Fill your weight
+Step 5 : Fill your height
+Step 6 : Fill your ages
+Step 7 : Press Calculate botton 

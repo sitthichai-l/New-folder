@@ -1,0 +1,320 @@
+ 
+#: import CheckBox kivy.uix.checkbox
+
+<CustLabel@Label>:
+	color: 0, 0, 0, 1
+	size: 150, 50
+	background_color: 50, 0, 0, 1
+	size_hint: .2, 1
+	
+<SampBoxLayout>:
+	orientation: "vertical"
+    weight_text_input: weight
+    height_text_input: height
+    ages_text_input: ages
+	text_input: result
+	target_: spinner_id_target
+	act: spinner_id_act
+	carbohydate: carbo
+	rice: cooked
+	mg: lessthan
+	target_: spinner_id_target
+	act: spinner_id_act
+	carbohydate: carbo
+	rice: cooked
+	protein : pro
+	chickleg : leg
+	fat : fat_
+	oil : oil_
+	wat : wat_
+	fib : fib_
+	sex: gender
+	
+	padding: 10
+    spacing: 10
+    canvas:
+        Rectangle:
+            source: 'background_ui.png'
+            size: self.size
+            pos: self.pos
+	
+	BoxLayout:
+		orientation: "vertical"
+		spacing: .1
+		size_hint_y:0.6
+		BoxLayout:
+			orientation: "horizontal"
+			size_hint_y:0.75
+			BoxLayout:
+				spacing:10
+				orientation: "horizontal"
+				size_hint_x: 0.55
+				BoxLayout:
+					orientation:"horizontal"
+					size_hint_y:.75
+					Spinner:
+						font_size: 17
+						text: "Gender"
+						values: ["Male", "Female"]
+						id: gender
+						on_text: root.sexs(gender.text)
+			BoxLayout:
+				size_hint_y: None
+				height: "35dp"
+				Label:
+					text: "Weight"
+					font_size: 20
+					color: 1, 1, 1, 1
+				TextInput:
+					id: weight
+					multiline: False
+				Label:
+					text: "kg."
+					font_size: 20
+					color: 1, 1, 1, 1
+		BoxLayout:
+			orientation: "horizontal"
+			size_hint_y:0.75
+			BoxLayout:
+				orientation: "horizontal"
+				size_hint: 0.55,0.8
+				Spinner:
+					font_size: 17
+					text: "Choose your targets"
+					values: ["Decrese", "Unchange", "Increse"]
+					id: spinner_id_target
+					on_text: root.target(spinner_id_target.text)
+			BoxLayout:
+				size_hint_y: None
+				height: "35dp"
+				Label:
+					text: "Height"
+					font_size: 20
+					color: 1, 1, 1, 1
+				TextInput:
+					id: height
+					multiline: False
+				Label:
+					text: "cm."
+					font_size: 20
+					color: 1, 1, 1, 1
+		BoxLayout:
+			orientation: "horizontal"
+			size_hint_y:0.75
+			BoxLayout:
+				orientation: "horizontal"
+				size_hint:  0.55,0.8
+				Spinner:
+					text: "Choose your activities rates"
+					font_size: 17
+					values: ["Least", "Little (1-3 hr./w)", "Medium (3-5 hr/w)","High (1-2 hr/d)","Highest (than 2 hr/d)"]
+					id: spinner_id_act
+					on_text: root.act_rate(spinner_id_act.text)
+			BoxLayout:
+				size_hint_y: None
+				height: "35dp"
+				Label:
+					text: "Ages"
+					font_size: 20
+					color: 1, 1, 1, 1
+				TextInput:
+					id: ages
+					multiline: False
+				Label:
+					text: ""
+					color: 0, 0, 0, 1
+ 
+    
+	BoxLayout:
+        orientation: "vertical"
+        size_hint:1,.2
+		BoxLayout:
+			Button:
+				font_size: 32
+				color: 1,1,1,1	
+				text: 'Calculate'
+				on_press: root.calculated(self)
+		
+	
+	
+	BoxLayout:
+		size_hint_y: .25
+		color: 0, 0, 0, 1
+		Label:
+			color: 0, 0, 0, 1
+			font_size: 20
+			text: 'Recommended calories per day is : ' 
+		Label:
+			font_size: 35
+			id: result
+			color: 50, 0, 0, 1	
+	BoxLayout:
+		size_hint_y:0.15
+	BoxLayout:
+		size_hint_y:0.05
+	
+	BoxLayout:
+		orientation:"vertical"
+		size_hint_y:0.8
+		spacing:25
+		
+		BoxLayout:
+			orientation: "vertical"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				size_hint_y: 10
+				size_hint_x: 1
+				orientation: "horizontal"
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					text: '                        Carbohydrate :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					id: carbo
+				
+		
+		BoxLayout:
+			orientation:"horizontal"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				orientation: "horizontal"
+				size_hint_x: 3.3
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 15
+					text: '                           Equal- Cooked rice :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 15
+					id: cooked		
+		
+		
+		BoxLayout:
+			orientation: "vertical"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				size_hint_y: 10
+				size_hint_x: 1
+				orientation: "horizontal"
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					text: '                                  Protein :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					id: pro
+	
+		BoxLayout:
+			orientation:"horizontal"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				orientation: "horizontal"
+				size_hint_x: 2.825
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 15
+					text: '                        Equal- Gilled Chicken :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 15
+					id: leg
+		BoxLayout:
+			orientation: "vertical"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				size_hint_y: 10
+				size_hint_x: 1
+				orientation: "horizontal"
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					text: '                                         Fat :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					id: fat_
+		BoxLayout:
+			orientation:"horizontal"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				orientation: "horizontal"
+				size_hint_x: 5.4
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 15
+					text: '                                            Equal- oil :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 15
+					id: oil_	
+		BoxLayout:
+			orientation: "vertical"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				size_hint_y: 10
+				size_hint_x: 1
+				orientation: "horizontal"
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					text: '                           Cholesterol :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 15
+					id: lessthan
+				
+				
+		BoxLayout:
+			orientation: "vertical"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				size_hint_y: 10
+				size_hint_x: 1
+				orientation: "horizontal"
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					text: '                                       Fiber :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					id: fib_
+
+		BoxLayout:
+			orientation: "vertical"
+			spacing: 25
+			padding: 55
+			BoxLayout:
+				size_hint_y: 10
+				size_hint_x: 1
+				orientation: "horizontal"
+				color: 0, 0, 0, 1
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					text: '                                     Water :'
+				Label:
+					color: 0, 0, 0, 1
+					font_size: 20
+					id: wat_
+	
+		
